@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+        <hr>
+        
+        <router-link to="/login"> Login으로 이동</router-link>
+        <router-link to="/"> Home으로 이동</router-link>
+        <router-view name="header"></router-view>
+        <router-view ></router-view>
+        <router-view name="footer"></router-view>
+        
+        <hr>
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.5.3/dist/vue-router.js"></script>
+
+    <script>
+
+
+        let HomeBody = { template: '<h2> this is Home Body </h2>' }
+        let HomeHeader = { template: '<h2> this is Header </h2>' }
+        let HomeFooter = { template: '<h2> this is footer </h2>' }
+
+        let LoginBody = { template: '<h2> this is Login Body </h2>'  }
+        let LoginBodyHeader = { template: '<h2> this is Login Header </h2>' }
+        let LoginBodyFooter = { template: '<h2> this is Login footer </h2>' }
+
+
+        let router = new VueRouter({
+            routes
+                : [
+                    {
+                        path: '/',
+                        components: {
+                            default: HomeBody,
+                            header: HomeHeader,
+                            footer: HomeFooter
+                        }
+                    },
+                    {
+                        path: '/login',
+                        components: {
+                            default: LoginBody,
+                            header: LoginBodyHeader,
+                            footer: LoginBodyFooter
+                        }
+                    }
+                ]
+        })
+
+        new Vue({
+
+            // el:'#app', $mount 같은기능
+            router: router
+        }).$mount('#app');
+
+    </script>
+</body>
+
+</html>

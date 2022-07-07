@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 표현식</title>
+</head>
+<body>
+    
+    <div id="app">
+        <p>{{message}}</p>
+        <p>{{message + "!!!"}}</p>
+        <p>{{message.split('').reverse().join('')}}</p>
+        
+        <!-- 변수선언 불가 -->
+        <!-- 조건문 불가 -->
+        <!-- 삼항연산자 사용가능.. -->
+        {{false ? 100 : 0}}
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+
+     
+
+    <script>
+
+
+        new Vue({
+                el: '#app',
+                data: {
+                   message: 'Hello Vue.js'
+                }
+            });
+    </script>
+</body>
+</html> 
+
+<!-- 
+    
+    -   데이터 바인딩
+    -   자바스크립트 표현식
+    -   디렉티 브
+    -   이벤트 처리
+    -   고급 템플릿 기법
+
+ -->

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트처리</title>
+</head>
+<body>
+    
+    <div id="app">
+        <!-- <p>{{message}}</p> -->
+        <button v-on:click="reverseMsg">1</button>
+        <input v-model="message">
+    
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+
+   
+    <script>
+
+
+        new Vue({
+                el: '#app',
+                data: {
+                   message:'Hello Vue.js'
+                },
+                // computed 캐시에 기록이 남는다..?
+                methods:{
+                   reverseMsg:function(){
+                    this.message = this.message.split('').reverse().join('');
+                    return this.message;
+                   }
+                },
+                //감시?
+                watch:{
+                    message:function(data){
+                        console.log("message의 값이 변한다 : ", data);
+                    }
+                }
+
+            });
+    </script>
+</body>
+</html> 
+
+<!-- 
+    
+    -   데이터 바인딩
+    -   자바스크립트 표현식
+    -   디렉티브
+        v-if : 뷰데이터 값의 참, 거짓을 판단하고 HTML태그를 화면 표시 하거나 안하거나
+        v-for : 뷰데이터의 갯수만큼 HTML태그를 반복 출력한다.
+        v-show : v-if와 유사하다. 단 영역은 남겨둔다.
+        v-bind : HTML태그 속성과 뷰데이터 속성을 연결한다.
+        v-on : 이벤트를 설정하고 핸들러 함수를 실행
+        v-model : 폼태그에서 사용한다. 입력데이터를 뷰 데이터와 즉시 동기화 한다. watch속성과 연결하여 사용한다.
+                    <input>, <select>, <textarea> 태그에만 사용가능
+    -   이벤트 처리
+    -   고급 템플릿 기법
+
+ -->

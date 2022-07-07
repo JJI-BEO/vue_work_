@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>컴포넌트 1</h2>
+        <my-componenet></my-componenet>
+        <my-local-component></my-local-components>
+    </div>
+    <hr>
+    <div id="app2">
+        <h2>컴포넌트 2</h2>
+        <my-componenet></my-componenet>
+        <my-local-component></my-local-components>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        //지역 컴포넌트, 전역 컴포넌트
+
+
+
+        //전역 컴포넌트
+        Vue.component('my-componenet', {
+            template:  '<p>전역컴포넌트</p>'     //html문서에 표시할 데이터, CSS
+        });
+
+        let cmp = {
+            template: '<p>지역컴포넌트</p>'
+        }
+
+        new Vue({
+            //출력할 대상 위치 정하기
+            el: '#app',
+            components:{
+                'my-local-component' : cmp
+            }
+        });
+
+        new Vue({
+            el:'#app2'
+        })
+    </script>
+
+</body>
+</html>
